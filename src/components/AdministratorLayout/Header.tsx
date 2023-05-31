@@ -29,7 +29,7 @@ function HeaderAdministratorLayout() {
 			/>
 			<div className="flex-1 flex flex-col items-end h-16 justify-center">
 				<div className="h-16 flex flex-row justify-center items-center">
-					<div className="w-12 h-12 rounded-full bg-red-600"></div>
+					<div className="w-12 h-12 rounded-full bg-transparent"></div>
 				</div>
 			</div>
 		</header>
