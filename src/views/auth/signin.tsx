@@ -6,7 +6,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Input } from "antd";
 import cookiesHandler from "@/utils/storage/cookies";
-import { Auth } from "@/services";
+import { LoadingOutlined } from "@ant-design/icons";
 
 interface ILogin {
 	username: string;
@@ -31,17 +31,10 @@ function LoginViews() {
 
 	const handleLogin = async () => {
 		setLoading(true);
-		Auth.login({ data: data, isNotify: true })
-			.then((result) => {
-				cookiesHandler.setCookie("access_token", result.data.access_token, 1);
-				refresherOrb(refresher + 1);
-			})
-			.catch((error) => {
-				refresherOrb(refresher + 1);
-			})
-			.finally(() => {
-				setLoading(false);
-			});
+		setTimeout(() => {
+			setLoading(false);
+			router.push("/dashboard");
+		}, 2000);
 	};
 
 	useEffect(() => {
@@ -63,8 +56,10 @@ function LoginViews() {
 						/>
 					</Link>
 				</div>
-				<div className="w-3/4">
-					<h2 className="font-semibold text-6xl">No Stunting: Administrator Platform</h2>
+				<div className="w-8/12">
+					<h2 className="font-semibold text-6xl">
+						No Stunting: Authorities Platform
+					</h2>
 					<p className="mt-4 text-xl">
 						No Stunting adalah platform komunikasi dan pencatatan kegiatan ibu
 						hamil dan bayi untuk mengoptimalkan pencegahan stunting, dan dengan
@@ -87,7 +82,7 @@ function LoginViews() {
 							<h3 className="text-2xl font-semibold">Login</h3>
 							<div className="mt-8 flex flex-col">
 								<div className="mb-4">
-									<p>Username</p>
+									<p>Access Name</p>
 									<Input />
 								</div>
 								<div className="mb-4">
@@ -96,7 +91,13 @@ function LoginViews() {
 								</div>
 							</div>
 							<div className="mt-16">
-								<button className="w-full h-12 bg-blue-800 text-white font-semibold text-xl">Login</button>
+								<button onClick={handleLogin} className="w-full h-12 bg-blue-800 text-white font-semibold text-xl">
+									{isLoading ? (
+										<LoadingOutlined className="text-white text-xl" />
+									) : (
+										"Login"
+									)}
+								</button>
 							</div>
 						</div>
 					</div>

@@ -1,0 +1,23 @@
+[
+  {
+    "key": 1,
+		"serialNumber": "0936-2136-4938",
+		"name": "Margaret Sukiyaki",
+		"address": "Surabaya",
+		"status": "suspend"
+  },
+  {
+    "key": 2,
+		"serialNumber": "0936-2136-9238",
+		"name": "Sunarti",
+		"address": "Kediri",
+		"status": "active"
+  },
+  {
+    "key": 3,
+		"serialNumber": "0936-2136-1235",
+		"name": "Dewi Hasanah",
+		"address": "Jember",
+		"status": "active"
+  }
+]
